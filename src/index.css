@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-transparent;
+  }
+  
+  .title-primary {
+    @apply text-3xl sm:text-4xl font-bold text-sodimac-blue dark:text-sodimac-yellow mb-4 sm:mb-6;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-2xl transition transform hover:scale-105;
+  }
+  
+  .nav-link {
+    @apply hover:text-blue-600 cursor-pointer;
+  }
+  
+  .mobile-menu-link {
+    @apply text-left py-2 hover:text-blue-600 transition-colors;
+  }
+}
+

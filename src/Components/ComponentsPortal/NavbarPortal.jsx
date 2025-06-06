@@ -63,9 +63,9 @@ const NavbarPortal = ({ isDarkMode, toggleDarkMode, onLogin }) => {
               {/* Logo */}
               <div className="flex-shrink-0">
                 <img
-                  className="h-8 w-auto cursor-pointer"
                   src={logo}
                   alt="Sodimac"
+                  className="h-6 sm:h-8 lg:h-10 w-auto cursor-pointer"
                   onClick={() => handleNav('/')}
                 />
               </div>
@@ -77,11 +77,11 @@ const NavbarPortal = ({ isDarkMode, toggleDarkMode, onLogin }) => {
                     <button
                       key={item.path}
                       onClick={() => handleNav(item.path)}
-                      className={`px-2 xl:px-3 py-2 text-sm font-medium ${
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
                         isActive(item.path)
-                          ? 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow font-semibold'
-                          : 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow'
-                    }`}
+                          ? 'text-sodimac-blue dark:text-white'
+                          : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+                      }`}
                     >
                       {item.name}
                     </button>
@@ -102,12 +102,14 @@ const NavbarPortal = ({ isDarkMode, toggleDarkMode, onLogin }) => {
                   )}
                 </button>
 
-                <button
-                  onClick={onLogin}
-                  className="ml-4 px-4 py-2 bg-sodimac-yellow text-sodimac-blue rounded-md text-sm font-medium hover:bg-yellow-400"
-                >
-                  Iniciar Sesión
-                </button>
+                <div className="hidden md:block">
+                  <button
+                    onClick={onLogin}
+                    className="px-3 py-1.5 text-sm font-medium text-sodimac-blue hover:text-red-600 dark:hover:text-sodimac-yellow transition-colors duration-200 whitespace-nowrap focus:outline-none"
+                  >
+                    Iniciar sesión
+                  </button>
+                </div>
 
                 {/* Botón menú móvil */}
                 <div className="md:hidden ml-2">
@@ -162,20 +164,50 @@ const NavbarPortal = ({ isDarkMode, toggleDarkMode, onLogin }) => {
                 </button>
               </div>
 
-              <div className="p-2">
-                {navItems.map(item => (
+              <div className="p-4">
+                {/* Sección de autenticación */}
+                <div className="mb-4 space-y-3">
+                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2 mb-1">Mi cuenta</h3>
                   <button
-                    key={item.path}
-                    onClick={() => handleNav(item.path)}
-                    className={`w-full text-left px-4 py-3 text-base font-medium ${
-                      isActive(item.path)
-                        ? 'text-sodimac-blue dark:text-white font-medium bg-gray-100 dark:bg-gray-800/50'
-                        : 'text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/30'
-                    }`}
+                    onClick={() => {
+                      onLogin();
+                      setIsOpen(false);
+                    }}
+                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-md text-sm font-medium text-white bg-sodimac-blue dark:bg-black hover:bg-blue-700 dark:hover:bg-gray-900 focus:outline-none transition-colors"
                   >
-                    {item.name}
+                    Iniciar sesión
                   </button>
-                ))}
+                  <button
+                    onClick={() => {
+                      // Lógica para registro
+                      console.log('Registrarse');
+                      setIsOpen(false);
+                    }}
+                    className="w-full flex items-center justify-center px-4 py-2.5 rounded-md text-sm font-medium text-white bg-sodimac-blue dark:bg-black hover:bg-blue-700 dark:hover:bg-gray-900 focus:outline-none transition-colors"
+                  >
+                    Registrarse
+                  </button>
+                </div>
+
+                {/* Navegación */}
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2 mb-2">Navegación</h3>
+                  <div className="space-y-1">
+                    {navItems.map(item => (
+                      <button
+                        key={item.path}
+                        onClick={() => handleNav(item.path)}
+                        className={`block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium ${
+                          isActive(item.path)
+                            ? 'bg-sodimac-blue/10 text-sodimac-blue dark:text-white'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

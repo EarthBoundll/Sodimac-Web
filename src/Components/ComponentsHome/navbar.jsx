@@ -118,7 +118,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.path)}
-                    className={`px-2 xl:px-3 py-2 text-sm font-medium                    ${
+                    className={`px-2 xl:px-3 py-2 text-sm font-medium ${
                       isActive(item.path)
                         ? 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow font-semibold'
                         : 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow'
@@ -197,22 +197,25 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
               </div>
 
               {/* Items del menú */}
-              <div className="py-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.path)}
-                    className={`w-full text-left px-4 py-3 text-base font-medium ${
-                      isActive(item.path)
-                        ? 'text-sodimac-blue dark:text-white font-medium bg-gray-100 dark:bg-gray-800/50'
-                        : 'text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/30'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-                
-               
+              <div className="p-4">
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                  <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 px-2 mb-2">Navegación</h3>
+                  <div className="space-y-1">
+                    {navItems.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => handleNavClick(item.path)}
+                        className={`block w-full text-left px-3 py-2.5 rounded-md text-sm font-medium ${
+                          isActive(item.path)
+                            ? 'text-sodimac-blue dark:text-white font-medium'
+                            : 'text-gray-700 dark:text-gray-300 hover:opacity-80'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

@@ -31,7 +31,7 @@ const ImageWithLoader = ({ src, alt }) => {
   return (
     <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-200 dark:bg-dark-bg-secondary animate-pulse" />
+        <div className="absolute inset-0 bg-gray-200 dark:bg-[#1a2837] animate-pulse" />
       )}
       <img
         src={src}
@@ -141,7 +141,7 @@ const Carrusel = () => {
           {images.map((image, index) => (
             <div key={index} className="relative">
               <ImageWithLoader {...image} />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end" />
             </div>
           ))}
         </Carousel>

@@ -7,7 +7,7 @@ const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false, amount: 0.3 },
-  transition: { duration: 0.5, ease: 'easeOut' }
+  transition: { duration: 0.6, ease: 'easeOut' }
 };
 
 const staggerContainer = {
@@ -21,35 +21,49 @@ const staggerContainer = {
   }
 };
 
-const Banner = ({ isDarkMode }) => {
+const fadeInItem = {
+  hidden: { opacity: 0, y: 20 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut'
+    }
+  }
+};
+
+const LlamadoAccion = ({ isDarkMode }) => {
   return (
-    <motion.div 
-      id="inicio"
+    <motion.section 
+      id="unirte" 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{ duration: 0.8, delay: 0.3 }}
-      className={`relative py-32 px-4 text-white transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-r from-[#0a0a0a] via-[#121212] to-[#1a1a1a]' : 'bg-gradient-to-r from-sodimac-blue/90 to-sodimac-blue/60'}`}>
+      className={`py-20 text-white text-center ${isDarkMode ? 'bg-gradient-to-r from-[#0a0a0a] via-[#121212] to-[#1a1a1a]' : 'bg-gradient-to-r from-sodimac-blue/90 to-sodimac-blue/60'}`}
+    >
       <motion.div 
         variants={staggerContainer}
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-4xl mx-auto px-4"
       >
-        <motion.h1 
-          {...fadeInUp}
-          transition={{ delay: 0.3 }}
-          className="text-4xl md:text-5xl font-bold mb-6">
-          Únete a Nuestro Equipo
-        </motion.h1>
-        <motion.p 
+        <motion.h2 
           {...fadeInUp}
           transition={{ delay: 0.5 }}
-          className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-          Descubre las oportunidades de crecimiento y desarrollo profesional que tenemos para ti en Sodimac
-        </motion.p>
-        
-        <motion.div 
+          className="text-3xl md:text-4xl font-bold mb-6"
+        >
+          ¿Listo para unirte a nuestro equipo?
+        </motion.h2>
+        <motion.p 
           {...fadeInUp}
           transition={{ delay: 0.7 }}
+          className="text-xl mb-8 max-w-2xl mx-auto"
+        >
+          Forma parte de una empresa líder en el rubro y construye tu futuro con nosotros
+        </motion.p>
+        <motion.div 
+          {...fadeInUp}
+          transition={{ delay: 0.9 }}
           className="flex flex-col sm:flex-row justify-center gap-4 mb-6"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -69,10 +83,9 @@ const Banner = ({ isDarkMode }) => {
             </Link>
           </motion.div>
         </motion.div>
-        
         <motion.p 
           {...fadeInUp}
-          transition={{ delay: 0.9 }}
+          transition={{ delay: 1.1 }}
           className="text-sm mt-6 opacity-80"
         >
           ¿Ya eres parte de Sodimac?{' '}
@@ -85,8 +98,8 @@ const Banner = ({ isDarkMode }) => {
           para ver tus postulaciones.
         </motion.p>
       </motion.div>
-    </motion.div>
+    </motion.section>
   );
 };
 
-export default Banner;
+export default LlamadoAccion;

@@ -54,8 +54,8 @@ const TrabajaConNosotros = () => {
   const navigate = useNavigate(); // Hook para navegación
 
   return (
-    <section id="unete a nuestro equipo" className="w-full overflow-x-hidden py-8 sm:py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+    <section id="unete-a-nuestro-equipo" className="w-full overflow-x-hidden py-8 sm:py-12 bg-transparent text-gray-800 dark:text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         {/* Header Section - Título y descripción */}
         <div className="text-center mb-8">
           <motion.h2
@@ -84,8 +84,8 @@ const TrabajaConNosotros = () => {
             transition={{ duration: 0.5 }}
             className="w-full"
           >
-            <div className="relative rounded-lg shadow-md overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-sodimac-blue/20 to-transparent dark:from-sodimac-yellow/20 z-10 transition-opacity duration-300 group-hover:opacity-0" />
+            <div className="relative rounded-xl shadow-lg overflow-hidden bg-white/80 dark:bg-black/90 backdrop-blur-sm p-4 border border-gray-100/20 dark:border-gray-800">
+              <div className="absolute inset-0 bg-gradient-to-r from-sodimac-blue/20 to-transparent dark:from-gray-900/50 z-10 transition-opacity duration-300 group-hover:opacity-0" />
               <div className="w-full aspect-[16/9]">
                 <img
                   src={trabajadoresImg}
@@ -104,7 +104,7 @@ const TrabajaConNosotros = () => {
             transition={{ duration: 0.5 }}
             className="w-full"
           >
-            <div className="bg-white dark:bg-dark-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            <div className="bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-sm p-4 sm:p-5 rounded-lg shadow-sm border border-white/20 dark:border-gray-700/50 hover:shadow-md transition-all duration-300">
               <h3 className="text-xl font-bold text-sodimac-blue dark:text-sodimac-yellow mb-4">
                 ¿Por qué trabajar con nosotros?
               </h3>
@@ -137,7 +137,7 @@ const TrabajaConNosotros = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-dark-bg-secondary p-4 rounded-lg shadow-md border border-gray-100 dark:border-gray-700"
+              className="bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-sm p-4 rounded-lg shadow-md border border-white/20 dark:border-gray-700/50"
             >
               <div className="flex items-start gap-3">
                 <div className="flex-shrink-0 text-sodimac-blue dark:text-sodimac-yellow">

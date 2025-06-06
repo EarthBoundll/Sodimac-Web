@@ -51,13 +51,12 @@ const stats = [
 const Conocenos = () => {
   return (
     // Sección de conocenos
-    <section id="conocenos" className="section-container py-12 sm:py-16 md:py-20">
+    <section id="conocenos" className="py-8 sm:py-16 overflow-hidden bg-transparent dark:text-white transition-colors duration-300">
       <motion.div
         {...fadeInUp}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-12">
           <motion.h2
             {...fadeInUp}
             className="title-primary mb-4"
@@ -75,22 +74,18 @@ const Conocenos = () => {
         </div>
 
     
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
        
           <motion.div
             {...fadeInLeft}
             className="relative group mx-auto w-full max-w-2xl lg:max-w-none"
           >
-            <div className="absolute inset-0 bg-sodimac-blue/20 dark:bg-sodimac-yellow/20 rounded-xl transition-all duration-300 group-hover:bg-opacity-0" />
-            <div className="relative overflow-hidden rounded-xl shadow-xl">
+            <div className="relative overflow-hidden rounded-xl shadow-xl transition-all duration-300 hover:shadow-2xl">
               <motion.img
                 src={conocenosImg}
                 alt="Conócenos"
-                className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover transform transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover transform transition-transform duration-700 hover:scale-105"
               />
-              {/* Decorative elements */}
-              <div className="absolute -bottom-2 -right-2 w-16 sm:w-24 h-16 sm:h-24 bg-sodimac-yellow dark:bg-sodimac-blue rounded-full opacity-20" />
-              <div className="absolute -top-2 -left-2 w-12 sm:w-16 h-12 sm:h-16 bg-sodimac-blue dark:bg-sodimac-yellow rounded-full opacity-20" />
             </div>
           </motion.div>
 
@@ -99,7 +94,7 @@ const Conocenos = () => {
             {...fadeInRight}
             className="space-y-6 sm:space-y-8"
           >
-            <div className="bg-white dark:bg-dark-bg-secondary p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="bg-white/90 dark:bg-black/90 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-100/20 dark:border-gray-700">
               <h3 className="text-xl sm:text-2xl font-bold text-sodimac-blue dark:text-sodimac-yellow mb-3 sm:mb-4">
                 Nuestra Misión
               </h3>
@@ -118,7 +113,7 @@ const Conocenos = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white dark:bg-dark-bg-secondary p-3 sm:p-4 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 text-center group hover:shadow-lg transition-shadow"
+                  className="bg-white/90 dark:bg-black/90 p-3 sm:p-4 rounded-lg shadow-md border border-gray-100/20 dark:border-gray-700 text-center group hover:shadow-lg transition-all duration-300 hover:scale-[1.02]"
                 >
                   <div className="text-sodimac-blue dark:text-sodimac-yellow mb-2 transform transition-transform group-hover:scale-110">
                     {stat.icon}

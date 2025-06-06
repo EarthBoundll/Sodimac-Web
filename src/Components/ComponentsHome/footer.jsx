@@ -49,7 +49,7 @@ const Footer = () => {
   return (
     <footer className="relative z-10">
       {/* Parte principal del footer */}
-      <div id="contacto" className="bg-[#1f364a] dark:bg-[#0f1922] text-white py-6 sm:py-8 px-4 sm:px-6 shadow-lg overflow-hidden">
+      <div id="contacto" className="bg-[#1f364a] dark:bg-[#121212] text-white py-6 sm:py-8 px-4 sm:px-6 shadow-lg overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           
           {/* Sección 1 */}
@@ -107,13 +107,13 @@ const Footer = () => {
       </div>
 
       {/* Barra inferior con texto adicional */}
-      <div className="bg-[#182a3a] dark:bg-[#0a0f14] text-white py-4 sm:py-6 px-4 sm:px-6 text-[10px] sm:text-xs md:text-sm text-center shadow-lg">
+      <div className="bg-[#0f1a21] dark:bg-[#0a0a0a] text-white py-4 sm:py-6 px-4 sm:px-6 text-[10px] sm:text-xs md:text-sm text-center shadow-lg">
         <p className="mb-1 space-x-2">
-          <span className="hover:text-sodimac-yellow cursor-pointer transition-colors">Términos y condiciones</span>
-          <span>|</span>
-          <span className="hover:text-sodimac-yellow cursor-pointer transition-colors">Política de cookies</span>
-          <span>|</span>
-          <span className="hover:text-sodimac-yellow cursor-pointer transition-colors">Política de privacidad</span>
+          <a href="#" className="hover:text-sodimac-yellow text-gray-300 hover:text-sodimac-yellow transition-colors">Términos y condiciones</a>
+          <span className="mx-2 text-gray-600">|</span>
+          <a href="#" className="hover:text-sodimac-yellow text-gray-300 hover:text-sodimac-yellow transition-colors">Política de cookies</a>
+          <span className="mx-2 text-gray-600">|</span>
+          <a href="#" className="hover:text-sodimac-yellow text-gray-300 hover:text-sodimac-yellow transition-colors">Política de privacidad</a>
         </p>
         <p className="mb-1">
           © TODOS LOS DERECHOS RESERVADOS<br className="sm:hidden" />

@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavbarPortal from '../Components/ComponentsPortal/NavbarPortal';
 import Banner from '../Components/ComponentsPortal/Banner';
-import FiltrosSimulados from '../Components/ComponentsPortal/FiltrosSimulados';
-import GridOfertas from '../Components/ComponentsPortal/GridOfertas';
 import ComoFunciona from '../Components/ComponentsPortal/ComoFunciona';
+import TestimoniosColaboradores from '../Components/ComponentsPortal/TestimoniosColaboradores';
+import Unirte from '../Components/ComponentsPortal/Unirte';
 
 const PortalTrabajo = ({ isDarkMode, toggleDarkMode }) => {
   const { pathname } = useLocation();
@@ -35,10 +35,9 @@ const PortalTrabajo = ({ isDarkMode, toggleDarkMode }) => {
       
       <ComoFunciona isDarkMode={isDarkMode} />
       
-      <div className="max-w-7xl mx-auto py-12 px-4">
-        <FiltrosSimulados isDarkMode={isDarkMode} />
-        <GridOfertas isDarkMode={isDarkMode} />
-      </div>
+      {/* Sección Testimonios */}
+      <TestimoniosColaboradores isDarkMode={isDarkMode} />
+      <Unirte isDarkMode={isDarkMode} />
     </div>
   );
 };

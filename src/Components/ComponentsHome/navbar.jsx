@@ -42,7 +42,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
     { name: 'Inicio', path: '/' },
     { name: 'Conócenos', path: '/#conocenos' },
     { name: 'Principios', path: '/#principios' },
-    { name: 'Unete a nuestro equipo', path: '/#unete a nuestro equipo' },
+    { name: 'Únete a nuestro equipo', path: '/#unete-a-nuestro-equipo' },
     { name: 'Contacto', path: '/#contacto' }
   ];
 
@@ -75,12 +75,15 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
 
   // Función para determinar si un elemento está activo
   const isActive = (path) => {
+    // Para la ruta de Inicio, solo activar si estamos exactamente en la raíz
     if (path === '/') {
       return location.pathname === '/' && !location.hash;
     }
+    // Para los enlaces con hash, verificar que el hash coincida
     if (path.startsWith('/#')) {
       return location.pathname === '/' && location.hash === path.substring(1);
     }
+    // Para otras rutas, verificar la coincidencia exacta
     return location.pathname === path;
   };
 
@@ -92,7 +95,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
         }`}
       >
         {/* Navbar principal */}
-        <nav className="bg-[#1B3C61] dark:bg-[#0f1922] shadow-lg relative">
+        <nav className="bg-white dark:bg-[#1a1a1a] shadow-lg relative transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
             <div className="flex items-center justify-between h-14 sm:h-16 lg:h-[72px]">
               {/* Logo */}
@@ -115,10 +118,10 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.path)}
-                    className={`px-2 xl:px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`px-2 xl:px-3 py-2 text-sm font-medium                    ${
                       isActive(item.path)
-                        ? 'text-sodimac-yellow'
-                        : 'text-white hover:text-sodimac-yellow'
+                        ? 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow font-semibold'
+                        : 'text-sodimac-blue dark:text-white hover:text-red-600 dark:hover:text-sodimac-yellow'
                     }`}
                   >
                     {item.name}
@@ -129,7 +132,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
               <div className="flex items-center gap-1 sm:gap-2">
                 <button
                   onClick={handleDarkModeToggle}
-                  className="p-1.5 sm:p-2 text-white hover:text-sodimac-yellow transition-colors"
+                  className="p-1.5 sm:p-2 text-sodimac-blue dark:text-white hover:text-sodimac-yellow transition-colors"
                   aria-label={isDarkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
                 >
                   {isDarkMode ? 
@@ -141,7 +144,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
                 {/* Botón del menú móvil */}
                 <button
                   onClick={() => setIsOpen(!isOpen)}
-                  className="lg:hidden inline-flex items-center justify-center p-1.5 sm:p-2 text-white hover:text-sodimac-yellow transition-colors"
+                  className="lg:hidden inline-flex items-center justify-center p-1.5 sm:p-2 text-gray-700 dark:text-white hover:text-black dark:hover:text-white transition-colors"
                   aria-label="Abrir menú"
                 >
                   {isOpen ? 
@@ -176,7 +179,7 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="absolute top-0 left-0 w-[280px] sm:w-[320px] h-full bg-[#1B3C61] dark:bg-[#0f1922] overflow-y-auto"
+              className="absolute top-0 left-0 w-[280px] sm:w-[320px] h-full bg-white dark:bg-[#1a1a1a] overflow-y-auto"
             >
               {/* Header del menú móvil */}
               <div className="flex items-center justify-between p-3 sm:p-4 border-b border-white/10">
@@ -199,10 +202,10 @@ const Navbar = ({ isDarkMode, toggleDarkMode }) => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.path)}
-                    className={`w-full flex items-center px-4 sm:px-5 py-3 sm:py-3.5 text-sm sm:text-base font-medium transition-colors ${
+                    className={`w-full text-left px-4 py-3 text-base font-medium ${
                       isActive(item.path)
-                        ? 'bg-sodimac-blue text-white'
-                        : 'text-white hover:bg-white/5'
+                        ? 'text-sodimac-blue dark:text-white font-medium bg-gray-100 dark:bg-gray-800/50'
+                        : 'text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/30'
                     }`}
                   >
                     {item.name}

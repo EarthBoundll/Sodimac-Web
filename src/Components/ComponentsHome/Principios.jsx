@@ -91,7 +91,7 @@ const PrincipioCard = ({ icon, title, description, details, index }) => {
         ease: "easeOut",
         delay: index * 0.1 
       }}
-      className="bg-white dark:bg-dark-bg-secondary p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 relative overflow-hidden h-full flex flex-col"
+      className="bg-white/90 dark:bg-black/90 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 dark:border-gray-800 relative overflow-hidden h-full flex flex-col"
     >
       {/* Círculo decorativo */}
       <div className="absolute -right-8 -top-8 w-16 h-16 bg-sodimac-blue/10 dark:bg-sodimac-yellow/10 rounded-full transition-all duration-300 group-hover:scale-150" />
@@ -137,7 +137,7 @@ const PrincipioCard = ({ icon, title, description, details, index }) => {
 // Sección completa con título, descripción y cards animados
 const Principios = () => {
   return (
-    <section id="principios" className="section-container py-8 sm:py-12 overflow-hidden">
+    <section id="principios" className="py-8 sm:py-12 overflow-hidden bg-transparent">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

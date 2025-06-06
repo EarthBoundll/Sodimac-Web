@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../Components/ComponentsHome/navbar';
 import TestLogin from '../Components/ComponentsHome/TestLogin';
 import Carrusel from '../Components/ComponentsHome/Carrusel.jsx';
@@ -7,35 +7,28 @@ import Principios from '../Components/ComponentsHome/Principios';
 import TrabajaConNosotros from '../Components/ComponentsHome/TrabajaConNosotros';
 
 const Home = ({ isDarkMode, toggleDarkMode }) => {
+  // Asegurarse de que la clase 'dark' esté en el elemento html cuando isDarkMode sea true
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
   return ( 
-    <div className="min-h-screen bg-white dark:bg-[#050505] relative isolate">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       <TestLogin />
       <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-      {/* Fondo con imagen */}
-      <div 
-        className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat opacity-20 dark:opacity-[0.05] transition-all duration-300"
-        style={{
-          backgroundImage: 'url("/Sodimac-Web/Fondo.jpg")',
-          pointerEvents: 'none',
-          filter: 'contrast(1.2) brightness(1.1) saturate(1.1)',
-          willChange: 'transform',
-        }}
-      />
       
-      {/* Overlay para modo oscuro */}
-      <div 
-        className="fixed inset-0 -z-10 bg-gradient-to-b from-transparent via-black/5 to-black/10 dark:from-black/40 dark:via-black/50 dark:to-black/60 pointer-events-none transition-opacity duration-300"
-      />
-
-      {/* Contenido */}
-      <div className="relative">
+      <main className={`relative z-10 min-h-[calc(100vh-4rem)] ${isDarkMode ? 'bg-black text-white' : 'bg-white text-gray-800'}`}>
         <Carrusel />
-        <div className="space-y-12 sm:space-y-16 md:space-y-20 pb-12 sm:pb-16">
+        <div className="space-y-12 sm:space-y-16 md:space-y-20 py-12 sm:py-16">
           <Conocenos />
           <Principios />
           <TrabajaConNosotros />
         </div>
-      </div>
+      </main>
     </div>
   );
 };
